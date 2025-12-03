@@ -142,7 +142,7 @@ def color_change(val):
 # === 第一部分：大盘指数 (固定显示) ===
 st.markdown("##### 指数")
 # 定义大盘代码：上证指数, 深证成指, 创业板指, 科创50
-index_codes = ['sh000001', 'sz399001', 'sz399006']
+index_codes = ['sh000001', 'sz399001', 'sz399006', 'rt_hkHSTECH']
 df_index = get_stock_data(index_codes)
 
 if not df_index.empty:

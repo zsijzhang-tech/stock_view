@@ -157,8 +157,8 @@ if not df_index.empty:
 
             st.metric(
                 label=row['名称'],
-                value=f"{row['当前价']:.2f}",
-                delta=f"{row['涨跌额']:.2f} ({row['涨跌幅(%)']:.2f}%)",
+                value=f"{row['当前价']:.3f}",
+                delta=f"{row['涨跌额']:.3f} ({row['涨跌幅(%)']:.3f}%)",
                 delta_color="inverse"  # A股模式：红涨绿跌
             )
 else:
@@ -208,9 +208,9 @@ if st.session_state.watchlist:
 
         # 样式处理
         styled_df = df_stocks[display_cols].style.map(color_change, subset=['涨跌幅(%)', '涨跌额']) \
-            .format({"当前价": "{:.2f}", "涨跌幅(%)": "{:+.2f}", "涨跌额": "{:+.2f}",
-                     "昨收价": "{:.2f}", "开盘价": "{:.2f}",
-                     "最高价": "{:.2f}", "最低价": "{:.2f}"})
+            .format({"当前价": "{:.3f}", "涨跌幅(%)": "{:+.3f}", "涨跌额": "{:+.3f}",
+                     "昨收价": "{:.3f}", "开盘价": "{:.3f}",
+                     "最高价": "{:.3f}", "最低价": "{:.3f}"})
 
         st.dataframe(styled_df, width="stretch", hide_index=True)
     else:
